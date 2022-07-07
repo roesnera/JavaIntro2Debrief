@@ -48,8 +48,9 @@ public class BankAccount {
             2. depending on accountType:
                 calculate transaction fee of $1.50 (checking only)
                 calculate interest of 1% on withdrawn amount (savings only)
-            3. check balance
-            4. return true if successful
+            3. check balance, do not allow for overdrafting
+            4. update balance
+            5. return true if successful
                 otherwise, return false
      */
 
@@ -58,8 +59,8 @@ public class BankAccount {
         Here you should write your deposit method
         requirements:
             1. no negatives as input
-            2. do not allow for overdrafting
-            3. return true if successful
+            3. update balance
+            2. return true if successful
                 otherwise, return false
      */
 
