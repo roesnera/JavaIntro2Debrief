@@ -27,6 +27,10 @@ public class BankAccount {
         These fields should not be able to be manipulated or access outside this class!
      */
 
+    private double balance;
+    private String nameOnAccount;
+    private int accountNumber;
+    private String accountType;
 
     /*
         Constructor method should go here
@@ -34,26 +38,64 @@ public class BankAccount {
         then, assign that input to the appropriate field
      */
 
-
-    /*
+    public BankAccount(double balance, String nameOnAccount, int accountNumber, String accountType) {
+        this.balance = balance;
+        this.nameOnAccount = nameOnAccount;
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+    }
+/*
         All your getter methods can go below
         The return type for your getter methods depends on which instance field you are getting!
      */
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getNameOnAccount() {
+        return nameOnAccount;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
 
     /*
-        Here you should write your withdraw method
-        requirements:
-            1. no negatives as input
-            2. depending on accountType:
-                calculate transaction fee of $1.50 (checking only)
-                calculate interest of 1% on withdrawn amount (savings only)
-            3. check balance, do not allow for overdrafting
-            4. update balance
-            5. return true if successful
-                otherwise, return false
-     */
+            Here you should write your withdraw method
+            requirements:
+                1. no negatives as input
+                2. depending on accountType:
+                    calculate transaction fee of $1.50 (checking only)
+                    calculate interest of 1% on withdrawn amount (savings only)
+                3. check balance, do not allow for overdrafting
+                4. update balance
+                5. return true if successful
+                    otherwise, return false
+         */
+    public boolean withdraw(double sum) {
+        double checkingTotalChange = sum + 1.5;
+        if (sum < 0
+                || (
+                this.accountType.equalsIgnoreCase("checking")
+                        && checkingTotalChange > this.balance
+        )
+                || sum > this.balance) {
+            return false;
+        }
 
+        if (this.accountType.equalsIgnoreCase("checking")) {
+            this.balance -= checkingTotalChange;
+            return true;
+        }
+
+        this.balance -= sum * 1.01;
+        return true;
+    }
 
     /*
         Here you should write your deposit method
@@ -64,6 +106,13 @@ public class BankAccount {
                 otherwise, return false
      */
 
+    public boolean deposit(double sum) {
+        if (sum < 0) {
+            return false;
+        }
+        this.balance += sum;
+        return true;
+    }
 
     /*
         Here you should write you toString method
@@ -71,6 +120,13 @@ public class BankAccount {
             1. returns a String that represents all your instance field values
      */
 
-
-
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "balance=" + balance +
+                ", nameOnAccount='" + nameOnAccount + '\'' +
+                ", accountNumber=" + accountNumber +
+                ", accountType='" + accountType + '\'' +
+                '}';
+    }
 }
