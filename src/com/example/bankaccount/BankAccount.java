@@ -47,7 +47,6 @@ public class BankAccount {
             1. no negatives as input
             2. depending on accountType:
                 calculate transaction fee of $1.50 (checking only)
-                calculate interest of 1% on withdrawn amount (savings only)
             3. check balance, do not allow for overdrafting
             4. update balance
             5. return true if successful
