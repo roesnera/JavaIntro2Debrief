@@ -93,7 +93,7 @@ public class BankAccount {
             return true;
         }
 
-        this.balance -= sum * 1.01;
+        this.balance -= sum;
         return true;
     }
 
