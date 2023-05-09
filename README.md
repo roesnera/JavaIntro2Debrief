@@ -10,5 +10,5 @@
 <ul>
 <li>remember to use comments to outline your methods and guide your own thinking as you write your code</li>
 </ul>
-<li>You will have until 3:30 EST to complete this assignment</li>
+<li>You will have until 4:15 EST to complete this assignment</li>
 </ul>
